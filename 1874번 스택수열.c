@@ -40,5 +40,8 @@ int main(void) {
 	if (s == count) for (int i = 0;i < r; i++) printf("%c\n", res[i]);
 	else printf("NO\n");
 
-	free(stack); free(sen); free(arr); free(res);
+	free(stack);
+	free(sen);
+	free(arr);
+	free(res);
 }
