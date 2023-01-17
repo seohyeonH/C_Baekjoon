@@ -1,3 +1,5 @@
+#18258번 큐2
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
@@ -5,7 +7,7 @@
 
 int main(void) {
 	int count, X;
-	int front = 0, rare = 0;
+	int front = 0, rear = 0;
 	int* queue;
 	char* command;
 	scanf("%d", &count);
@@ -17,21 +19,21 @@ int main(void) {
 
 		if (!strcmp("push", command)) {
 			scanf("%d", &X);
-			queue[rare++] = X;
+			queue[rear++] = X;
 		}
 		else if (!strcmp("pop", command)) {
-			if (front == rare) printf("-1\n");
+			if (front == rear) printf("-1\n");
 			else printf("%d\n", queue[front++]);
 		}
-		else if (!strcmp("size", command)) printf("%d\n", rare - front);
+		else if (!strcmp("size", command)) printf("%d\n", rear - front);
 		else if (!strcmp("empty", command)) {
-			if (front == rare) printf("1\n");
+			if (front == rear) printf("1\n");
 			else printf("0\n");
 		}
 		else {
-			if (front == rare) printf("-1\n");
+			if (front == rear) printf("-1\n");
 			else if (!strcmp("front", command)) printf("%d\n", queue[front]);
-			else if (!strcmp("back", command)) printf("%d\n", queue[rare - 1]);
+			else if (!strcmp("back", command)) printf("%d\n", queue[rear - 1]);
 		}
 		free(command);
 	}
