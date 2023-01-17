@@ -4,7 +4,7 @@
 
 int main(void) {
 	int count, command;
-	int front = 0, rare = 0;
+	int front = 0, rear = 0;
 	int* queue;
 	scanf("%d", &count);
 
@@ -14,11 +14,11 @@ int main(void) {
 
 		if (command == -1) break;
 		else if(command == 0) front++;
-		else if (count != rare - front) queue[rare++] = command;
+		else if (count != rear - front) queue[rear++] = command;
 	};
 
-	if (front == rare) printf("empty");
-	else for (int i = front; i < rare; i++) printf("%d ", queue[i]);
+	if (front == rear) printf("empty");
+	else for (int i = front; i < rear; i++) printf("%d ", queue[i]);
 	
 	free(queue);
 }
