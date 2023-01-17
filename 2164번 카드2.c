@@ -5,15 +5,15 @@
 
 int main(void) {
 	int num;
-	int front = 0, rare = 0;
+	int front = 0, rear = 0;
 	int* queue;
 	scanf("%d", &num);
 	
 	queue = (int*)malloc(3 * num * sizeof(int));
-	for (int i = 0; i < num; i++) queue[rare++] = i + 1;
+	for (int i = 0; i < num; i++) queue[rear++] = i + 1;
 
-	while (front != rare - 1) {
-		queue[rare++] = queue[++front];
+	while (front != rear - 1) {
+		queue[rear++] = queue[++front];
 		front++;
 	}
 
